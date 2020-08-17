@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" href="styles.css" /></head><body><header><div class="header-top"><a class="header-logo" href="https://developers.symphony.com/" /></div><div class="header-bottom"></div></header><div class="main"><a class="breadcrumb" href="./index.html">Home</a><span class="breadcrumb"> / </span><a class="breadcrumb" href="./extension-webpack-plugin.html">@sym20/extension-webpack-plugin</a><h1 class="page-header">extension-webpack-plugin package</h1><div class="summary"><p><span>This extension is used to pack a Symphony 2.0 extension into a </span><code>.tgz</code><span> file that can be deployed into a Symphony 2.0 Client instance.</span></p></div><h3 class="section-heading">Remarks</h3><div><p><span>The </span><code>extension-webpack-plugin</code><span> consists of two parts. The first part is the webpack plugin that is used when building the extension, to produce a deliverable </span><code>.tgz</code><span>. The second part is the install script that should be used to deploy the extension to be used in production.</span></p><p><h2><span>Usage</span></h2></p><p><span>In </span><code>webpack.config.js</code><span>:</span></p><pre>const Sym20WebpackPlugin = require(&#x27;@sym20/extension-webpack-plugin&#x27;);
+
+module.exports = {
+  ...
+
+  plugins: [
+    new Sym20WebpackPlugin({
+      name: &#x27;Hello World Symphony extension&#x27;,
+      cwd: &#x27;./dist&#x27;,
+      files: [
+        &#x27;./extension.js&#x27;
+      ]
+    })
+  ],
+
+  ...
+};
+</pre><p><span>See </span><a href="./extension-webpack-plugin.options.html">Options</a><span> for available options.</span></p><p><h2><span>Deployment</span></h2></p><p><span>An extension can be deployed into an existing Symphony Client 2.0 instance.</span></p><p><span>The Symphony Client is deployed in an AWS S3 bucket, and each extension is also installed in an S3 bucket. To deploy an extension you need to have access to the S3 bucket.</span></p><p><span>To deploy an extension, unpack the extension </span><code>.tgz</code><span> file and run the </span><code>install-extension.sh</code><span> file that it contains.</span></p><p><span>This example deploys a plugin in the S3 bucket named </span><code>front-end-dev</code><span>:</span></p><pre>$ tar zxf hello-world-v1.0.0.tgz
+$ ./install-extension.sh --bucket front-end-dev
+</pre><p></p></div><h3 class="section-heading">Classes</h3><table><thead><tr><th>Class</th><th>Description</th></tr></thead><tr><td><a class="ref" href="./extension-webpack-plugin.sym20webpackplugin.html">Sym20WebpackPlugin</a></td><td><div class="description"><p><span>Webpack plugin for building a Symphony 2.0 Client Extension</span></p></div></td></tr></table><h3 class="section-heading">Interfaces</h3><table><thead><tr><th>Interface</th><th>Description</th></tr></thead><tr><td><a class="ref" href="./extension-webpack-plugin.options.html">Options</a></td><td><div class="description"><p><span>Options to pass to Sym20WebpackPlugin</span></p></div></td></tr></table></div></body></html>
