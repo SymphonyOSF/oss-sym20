@@ -1,0 +1,12 @@
+remote_theme: pmarsceill/just-the-docs
+color_scheme: nil
+url: "https://allegro.oss.symphony.com"
+
+# Aux links for the upper right navigation
+aux_links:
+ "Allegro Example Programs":
+  - "//examples.allegro.oss.symphony.com"
+ "API Source Code":
+  - "//github.com/SymphonyOSF/oss-sym20"
+
+search_enabled: true
